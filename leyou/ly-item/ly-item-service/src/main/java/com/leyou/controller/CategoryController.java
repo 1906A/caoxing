@@ -60,6 +60,9 @@ public class CategoryController {
         return res;
     }
 
-
+    @RequestMapping("findCategoryById")
+    public Category findCategoryById(@RequestParam("id") long id){
+        return categoryService.findCategoryById(id);
+    }
 
 }

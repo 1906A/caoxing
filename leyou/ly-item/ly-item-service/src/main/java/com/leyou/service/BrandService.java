@@ -75,11 +75,12 @@ public class BrandService {
         });
     }
 
-    /*
-    * 根据bid查询brandName
-    * */
     public List<Brand> findBrandByCid(Long cid) {
 
         return brandMapper.findBrandByCid(cid);
+    }
+
+    public Brand findBrandByid(long id) {
+        return brandMapper.findBrandByid(id);
     }
 }

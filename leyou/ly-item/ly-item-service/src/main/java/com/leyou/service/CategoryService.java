@@ -27,4 +27,8 @@ public class CategoryService {
     public void deleteCategory(Integer id) {
         categoryMapper.deleteByPrimaryKey(id);
     }
+
+    public Category findCategoryById(long id) {
+        return categoryMapper.selectByPrimaryKey(id);
+    }
 }
