@@ -55,4 +55,12 @@ public class SpuController {
     public void upOrDown(@RequestParam("spuId") Long spuId,@RequestParam("saleable") int saleable){
         spuService.upOrDown(spuId,saleable);
     }
+
+    /*
+    * 根据spuId查询spu
+    * */
+    @RequestMapping("findSpuById")
+    public Spu findSpuById(@RequestParam("spuId") Long spuId){
+        return spuService.findSpuById(spuId);
+    }
 }

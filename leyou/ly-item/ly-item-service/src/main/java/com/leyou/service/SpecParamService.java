@@ -54,4 +54,10 @@ public class SpecParamService {
 
         return specParamMapper.select(specParam);
     }
+    /*
+     * 根据cid3和非通用属性查询规格参数详情
+     * */
+    public List<SpecParam> findSpecparamByCidAndGeneric(Long cid) {
+        return specParamMapper.findSpecparamByCidAndGeneric(cid);
+    }
 }

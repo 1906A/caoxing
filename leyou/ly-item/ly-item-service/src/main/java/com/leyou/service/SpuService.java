@@ -144,4 +144,8 @@ public class SpuService {
 
         spuMapper.updateByPrimaryKeySelective(spu);
     }
+
+    public Spu findSpuById(Long spuId) {
+        return spuMapper.selectByPrimaryKey(spuId);
+    }
 }
