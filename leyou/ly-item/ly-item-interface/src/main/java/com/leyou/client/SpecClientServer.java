@@ -22,5 +22,5 @@ public interface SpecClientServer {
      * 根据cid3和非通用属性查询规格参数详情
      * */
     @RequestMapping("findSpecparamByCidAndGeneric")
-    public List<SpecParam> findSpecparamByCidAndGeneric(@RequestParam Long cid);
+    public List<SpecParam> findSpecparamByCidAndGeneric(@RequestParam Long cid,@RequestParam("generic")boolean generic);
 }

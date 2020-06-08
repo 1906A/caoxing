@@ -6,6 +6,8 @@ spring:
     name: goodsDetail-service
   main:
     allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
 
 eureka:
   client:

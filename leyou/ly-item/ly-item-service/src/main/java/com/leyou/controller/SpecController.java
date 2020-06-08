@@ -96,8 +96,8 @@ public class SpecController {
     * 根据cid3和非通用属性查询规格参数详情
     * */
     @RequestMapping("findSpecparamByCidAndGeneric")
-    public List<SpecParam> findSpecparamByCidAndGeneric(@RequestParam Long cid){
-        return specParamService.findSpecparamByCidAndGeneric(cid);
+    public List<SpecParam> findSpecparamByCidAndGeneric(@RequestParam Long cid,@RequestParam("generic")boolean generic){
+        return specParamService.findSpecparamByCidAndGeneric(cid,generic);
     }
 
 }
