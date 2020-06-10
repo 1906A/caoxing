@@ -1,90 +1,90 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>乐优商城--商品详情页</title>
-	 <link rel="icon" href="/assets/img/favicon.ico">
+	<link rel="icon" href="/assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="/css/pages-item.css" />
-    <link rel="stylesheet" type="text/css" href="/css/pages-zoom.css" />
-    <link rel="stylesheet" type="text/css" href="/css/widget-cartPanelView.css" />
+	<link rel="stylesheet" type="text/css" href="/css/webbase.css" />
+	<link rel="stylesheet" type="text/css" href="/css/pages-item.css" />
+	<link rel="stylesheet" type="text/css" href="/css/pages-zoom.css" />
+	<link rel="stylesheet" type="text/css" href="/css/widget-cartPanelView.css" />
 
 	<style type="text/css">
-	.goods-intro-list li {
-		display: inline-block;
-		width: 300px;
-	}
-       .Ptable {
-           margin: 10px 0;
-       }
-       .Ptable-item {
-            padding: 12px 0;
-            line-height: 220%;
-            color: #999;
-            font-size: 12px;
-               border-bottom: 1px solid #eee;
-        }
-       .Ptable-item h3 {
-           width: 110px;
-           text-align: right;
-       }
-       .Ptable-item h3, .package-list h3 {
-           font-weight: 400;
-           font-size: 12px;
-           float: left;
-       }
-       h3 {
-           display: block;
-           font-size: 1.17em;
-           -webkit-margin-before: 1em;
-           -webkit-margin-after: 1em;
-           -webkit-margin-start: 0px;
-           -webkit-margin-end: 0px;
-           font-weight: bold;
-       }
-       .Ptable-item dl {
-           margin-left: 110px;
-       }
-       dl {
-           display: block;
-           -webkit-margin-before: 1em;
-           -webkit-margin-after: 1em;
-           -webkit-margin-start: 0px;
-           -webkit-margin-end: 0px;
-       }
-       .Ptable-item dt {
-           width: 160px;
-           float: left;
-           text-align: right;
-           padding-right: 5px;
-       }
-       .Ptable-item dd {
-           margin-left: 210px;
-       }
-       dd {
-           display: block;
-           -webkit-margin-start: 40px;
-       }
-       .package-list {
-           padding: 12px 0;
-           line-height: 220%;
-           color: #999;
-           font-size: 12px;
-           margin-top: -1px;
-       }
-       .package-list h3 {
-           width: 130px;
-           text-align: right;
-       }
-       .package-list p {
-           margin-left: 155px;
-           padding-right: 50px;
-       }
-</style>
+		.goods-intro-list li {
+			display: inline-block;
+			width: 300px;
+		}
+		.Ptable {
+			margin: 10px 0;
+		}
+		.Ptable-item {
+			padding: 12px 0;
+			line-height: 220%;
+			color: #999;
+			font-size: 12px;
+			border-bottom: 1px solid #eee;
+		}
+		.Ptable-item h3 {
+			width: 110px;
+			text-align: right;
+		}
+		.Ptable-item h3, .package-list h3 {
+			font-weight: 400;
+			font-size: 12px;
+			float: left;
+		}
+		h3 {
+			display: block;
+			font-size: 1.17em;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+			font-weight: bold;
+		}
+		.Ptable-item dl {
+			margin-left: 110px;
+		}
+		dl {
+			display: block;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+		}
+		.Ptable-item dt {
+			width: 160px;
+			float: left;
+			text-align: right;
+			padding-right: 5px;
+		}
+		.Ptable-item dd {
+			margin-left: 210px;
+		}
+		dd {
+			display: block;
+			-webkit-margin-start: 40px;
+		}
+		.package-list {
+			padding: 12px 0;
+			line-height: 220%;
+			color: #999;
+			font-size: 12px;
+			margin-top: -1px;
+		}
+		.package-list h3 {
+			width: 130px;
+			text-align: right;
+		}
+		.package-list p {
+			margin-left: 155px;
+			padding-right: 50px;
+		}
+	</style>
 
 </head>
 
@@ -103,6 +103,9 @@
 					<li th:each="category : ${categoryList}">
 						<a href="#" th:text="${category.name}">手机</a>
 					</li>
+
+
+
 					<li>
 						<a href="#" th:text="${brand.name}">Apple</a>
 					</li>
@@ -153,7 +156,7 @@
 							<div class="fl fix-width">
 								<i class="red-bg">加价购</i>
 								<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换
-购热销商品</em>
+									购热销商品</em>
 							</div>
 						</div>
 					</div>
@@ -180,8 +183,8 @@
 							<dl v-for="(value,key,index) in specialSpec">
 								<dt>
 									<div class="fl title">
-									<i>{{paramMap[key]}}</i>
-								</div>
+										<i>{{paramMap[key]}}</i>
+									</div>
 								</dt>
 								<dd v-for="(v,index) in value">
 									<a href="javascript:;" :class="{selected: indexes[key]==index }" @click="indexes[key]=index">
@@ -190,7 +193,6 @@
 								</dd>
 
 							</dl>
-
 						</div>
 
 						<div class="summary-wrap">
@@ -252,9 +254,9 @@
 										</div>
 										<div class="price">
 											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
+												<em>¥</em>
+												<i>6088.00</i>
+											</strong>
 										</div>
 										<div class="operate">
 											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
@@ -271,9 +273,9 @@
 										</div>
 										<div class="price">
 											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
+												<em>¥</em>
+												<i>6088.00</i>
+											</strong>
 										</div>
 										<div class="operate">
 											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
@@ -290,9 +292,9 @@
 										</div>
 										<div class="price">
 											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
+												<em>¥</em>
+												<i>6088.00</i>
+											</strong>
 										</div>
 										<div class="operate">
 											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
@@ -307,9 +309,9 @@
 										</div>
 										<div class="price">
 											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
+												<em>¥</em>
+												<i>6088.00</i>
+											</strong>
 										</div>
 										<div class="operate">
 											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
@@ -324,9 +326,9 @@
 										</div>
 										<div class="price">
 											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
+												<em>¥</em>
+												<i>6088.00</i>
+											</strong>
 										</div>
 										<div class="operate">
 											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
@@ -361,29 +363,29 @@
 										</div>
 										<i>Feless费勒斯VR</i>
 										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>39</span>
-  </label>
+											<input type="checkbox"><span>39</span>
+										</label>
 									</li>
 									<li class="">
 										<div id=""><img src="/img/_/dp02.png" /> </div>
 										<i>Feless费勒斯VR</i>
 										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>50</span>
-  </label>
+											<input type="checkbox"><span>50</span>
+										</label>
 									</li>
 									<li class="">
 										<div id=""><img src="/img/_/dp03.png" /></div>
 										<i>Feless费勒斯VR</i>
 										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>59</span>
-  </label>
+											<input type="checkbox"><span>59</span>
+										</label>
 									</li>
 									<li class="">
 										<div id=""><img src="/img/_/dp04.png" /></div>
 										<i>Feless费勒斯VR</i>
 										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>99</span>
-  </label>
+											<input type="checkbox"><span>99</span>
+										</label>
 									</li>
 								</ul>
 							</div>
@@ -428,8 +430,10 @@
 							<div id="one" class="tab-pane active">
 								<ul class="goods-intro-list unstyled" style="list-style: none;">
 									<li v-for="group in groups">
-										<div v-for="param in group.params">{{param.name}}:{{param.value}}</div>
+										<div v-for="param in group.params">{{param.name}}：{{param.value}}</div>
+
 									</li>
+
 								</ul>
 								<!--商品详情-->
 								<div class="intro-detail" th:utext="${spuDetail.description}">
@@ -440,19 +444,18 @@
 							</div>
 							<div id="two" class="tab-pane">
 								<div class="Ptable">
-    <div class="Ptable-item" v-for="group in groups">
-        <h3>{{group.name}}</h3>
-        <dl>
-			<div v-for="p in group.params">
-				<dt>{{p.name}}</dt><dd>{{p.value}}</dd>
-			</div>
-        </dl>
-    </div>
-</div>
-<div class="package-list">
-    <h3>包装清单</h3>
-    <p th:text="${spuDetail.packingList}">手机X1、快速指南X1、华为SuperCharge 充电器X1、三包凭证X1、Type-C 数字耳机X1、Type-C 数据线X1、取卡针X1、TPU保护壳X1、USB Type-C转3.5mm耳机转接线X1（备注：最终以实物为准）</p>
-</div>
+									<div class="Ptable-item" v-for="group in groups">
+										<h3>{{group.name}}</h3>
+										<dl>
+											<div v-for="param in group.params"><dt>{{param.name}}</dt><dd>{{param.value}}</dd></div>
+										</dl>
+									</div>
+
+								</div>
+								<div class="package-list">
+									<h3>包装清单</h3>
+									<p th:text="${spuDetail.packingList}">手机X1、快速指南X1、华为SuperCharge 充电器X1、三包凭证X1、Type-C 数字耳机X1、Type-C 数据线X1、取卡针X1、TPU保护壳X1、USB Type-C转3.5mm耳机转接线X1（备注：最终以实物为准）</p>
+								</div>
 
 							</div>
 							<div id="three" class="tab-pane">
@@ -484,9 +487,9 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em>¥</em>
-											<i>3699.00</i>
-										</strong>
+										<em>¥</em>
+										<i>3699.00</i>
+									</strong>
 								</div>
 								<div class="commit">
 									<i class="command">已有6人评价</i>
@@ -503,9 +506,9 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em>¥</em>
-											<i>4388.00</i>
-										</strong>
+										<em>¥</em>
+										<i>4388.00</i>
+									</strong>
 								</div>
 								<div class="commit">
 									<i class="command">已有700人评价</i>
@@ -522,9 +525,9 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
+										<em>¥</em>
+										<i>4088.00</i>
+									</strong>
 								</div>
 								<div class="commit">
 									<i class="command">已有700人评价</i>
@@ -541,9 +544,9 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
+										<em>¥</em>
+										<i>4088.00</i>
+									</strong>
 								</div>
 								<div class="commit">
 									<i class="command">已有700人评价</i>
@@ -560,9 +563,9 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
+										<em>¥</em>
+										<i>4088.00</i>
+									</strong>
 								</div>
 								<div class="commit">
 									<i class="command">已有700人评价</i>
@@ -579,9 +582,9 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
+										<em>¥</em>
+										<i>4088.00</i>
+									</strong>
 								</div>
 								<div class="commit">
 									<i class="command">已有700人评价</i>
@@ -593,7 +596,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 <script src="/js/vue/vue.js"></script>
 <script src="/js/axios.min.js"></script>
@@ -621,61 +624,58 @@
 </script>
 
 <script>
-    var itemVm = new Vue({
-        el:"#itemApp",
-        data:{
-        	ly,
-			paramMap,
+	var itemVm = new Vue({
+		el:"#itemApp",
+		data:{
+			ly,
 			specialSpec,
 			genericSpec,
-			indexes,
+			paramMap,
 			skus,
-			groups
-        },
+			indexes
+		},
 		computed:{
-        	sku(){
-				const index = Object.values(this.indexes).join("_");
+			sku(){
+				const index = Object.values(this.indexes).join("_"); //0_0_0
 				return this.skus.find(s => s.indexes == index);
 			},
 			images(){
 				return this.sku.images.split(",");
 			},
-			group(){
-        		groups.forEach(group=>{
-        			group.params.forEach(param=>{
+			groups(){
+				groups.forEach(group =>{
+					group.params.forEach(param =>{
 						if(param.generic){
-							// 通用属性，去spu的genericSpec中获取
-							param.value= this.genericSpec[param.id];
+							param.value = genericSpec[param.id];
 						}else{
-							// 特有属性值，去SKU中获取
-							param.value= JSON.parse(this.sku.ownSpec)[param.id]
+							param.value = JSON.parse(this.sku.ownSpec)[param.id];
 						}
 					})
 				})
 				return groups;
 			}
 		},
-        components:{
-            lyTop: () => import('/js/pages/top.js')
-        }
-    });
+		components:{
+			lyTop: () => import('/js/pages/top.js')
+		}
+	});
 </script>
 
 <script type="text/javascript" src="/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){
-	$("#service").hover(function(){
-		$(".service").show();
-	},function(){
-		$(".service").hide();
-	});
-	$("#shopcar").hover(function(){
-		$("#shopcarlist").show();
-	},function(){
-		$("#shopcarlist").hide();
-	});
+	$(function(){
+		$("#service").hover(function(){
+			$(".service").show();
+		},function(){
+			$(".service").hide();
+		});
+		$("#shopcar").hover(function(){
+			$("#shopcarlist").show();
+		},function(){
+			$("#shopcarlist").hide();
+		});
 
-})
+	})
 </script>
 <script type="text/javascript" src="/js/model/cartModel.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery.easing/jquery.easing.min.js"></script>

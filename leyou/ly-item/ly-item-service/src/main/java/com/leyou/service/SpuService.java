@@ -12,6 +12,7 @@ import com.leyou.pojo.Spu;
 import com.leyou.pojo.SpuDetail;
 import com.leyou.pojo.Stock;
 import com.leyou.vo.SpuVo;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,9 @@ public class SpuService {
 
     @Autowired
     private StockMapper stockMapper;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     public PageResult<SpuVo> findSpuByLimit(String key, Integer saleable, Integer page, Integer rows) {
         PageHelper.startPage(page,rows);
@@ -77,6 +81,12 @@ public class SpuService {
             stock.setStock(sku.getStock());
             stockMapper.insert(stock);
         });
+
+        this.sendMsg("insert",spu.getId());
+    }
+
+    public void sendMsg(String type,Long spuId){
+        amqpTemplate.convertAndSend("item.exchange","item."+type,spuId);
     }
 
     public SpuDetail findSpuDetailbySpuId(Long spuId) {
@@ -99,11 +109,17 @@ public class SpuService {
         spuDetail.setSpuId(spuVo.getId());
         spuDetailMapper.updateByPrimaryKeySelective(spuDetail);
 
-        List<Sku> skus = spuVo.getSkus();
-        skus.forEach(sku -> {
-            sku.setEnable(false);
-            skuMapper.updateByPrimaryKey(sku);
+//        List<Sku> skus = spuVo.getSkus();
+//        skus.forEach(sku -> {
+//            sku.setEnable(false);
+//            skuMapper.updateByPrimaryKey(sku);
+//
+//            stockMapper.deleteByPrimaryKey(sku.getId());
+//        });
 
+        List<Sku> skuList = skuMapper.findSkuBySpuId(spuVo.getId());
+        skuList.forEach(sku -> {
+            skuMapper.deleteByPrimaryKey(sku.getId());
             stockMapper.deleteByPrimaryKey(sku.getId());
         });
 
@@ -121,8 +137,12 @@ public class SpuService {
             stockMapper.insert(stock);
         });
 
+        this.sendMsg("update",spuVo.getId());
     }
 
+    /*
+    * 根据spuId删除商品信息
+    * */
     public void deleteBySpuId(Long spuId) {
         List<Sku> skuList = skuMapper.findSkuBySpuId(spuId);
         skuList.forEach(sku -> {
@@ -135,8 +155,12 @@ public class SpuService {
         spuDetailMapper.deleteByPrimaryKey(spuId);
 
         spuMapper.deleteByPrimaryKey(spuId);
-    }
 
+        this.sendMsg("delete",spuId);
+    }
+    /*
+    * 根据saleable排序
+    * */
     public void upOrDown(Long spuId,int saleable) {
         Spu spu = new Spu();
         spu.setId(spuId);
@@ -147,5 +171,9 @@ public class SpuService {
 
     public Spu findSpuById(Long spuId) {
         return spuMapper.selectByPrimaryKey(spuId);
+    }
+
+    public SpuVo findSpuBySpuId(Long spuId) {
+        return spuMapper.findSpuBySpuId(spuId);
     }
 }

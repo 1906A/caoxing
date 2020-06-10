@@ -9,6 +9,7 @@ import com.leyou.search.client.SkuClient;
 import com.leyou.search.client.SpecClient;
 import com.leyou.search.client.SpuClient;
 import com.leyou.search.item.Goods;
+import com.leyou.search.repository.GoodsRepository;
 import com.leyou.vo.SpuVo;
 import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class GoodsService {
 
     @Autowired
     private SpuClient spuClient;
+
+    @Autowired
+    GoodsRepository goodsRepository;
 
     private static final ObjectMapper MAPPER=new ObjectMapper();
 
@@ -124,5 +128,24 @@ public class GoodsService {
             }
         }
         return result;
+    }
+
+    /*
+    * rabbitMq监听消息修改es数据
+    * */
+    public void editEsData(Long spuId) throws Exception {
+
+        //1:根据spuId查询spu
+        SpuVo spuVo = spuClient.findSpuBySpuId(spuId);
+        //2:spu转换成goods
+        Goods goods = this.convert(spuVo);
+        //3:持久化到es
+        goodsRepository.save(goods);
+    }
+    /*
+    * 删除es数据
+    * */
+    public void deleteEsData(Long spuId) {
+        goodsRepository.deleteById(spuId);
     }
 }
