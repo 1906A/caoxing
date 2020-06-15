@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.leyou.dao.SpuMapper">
-    <!--<resultMap id="query_All" type="com.leyou.pojo.Spu">
-        <id column="id" property="id"></id>
-        <result property="title" column="title"></result>
-        <result property="bname" column="bname"></result>
-        <result property="cname" column="cname"></result>
-        <association property="brand" javaType="com.leyou.pojo.Brand">
-            <result column="bname" property="name"></result>
-        </association>
-        <association property="category" javaType="com.leyou.pojo.Category">
-            <result column="cname" property="name"></result>
-        </association>
-    </resultMap>-->
+
     <select id="findSpuByLimit" resultType="com.leyou.vo.SpuVo">
         SELECT
             s.*,
