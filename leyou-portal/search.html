@@ -118,33 +118,30 @@
         </div>
         <!--selector-->
         <div class="clearfix selector">
-            <div class="type-wrap" v-for="(f,index) in filters" v-if="f.key!='品牌'">
+            <div class="type-wrap" v-for="f in filters" v-if="f.key!='品牌'">
                 <div class="fl key">{{f.key}}</div>
                 <div class="fl value">
-                    <ul class="type-list">
-                        <li v-for="opt in f.options" @click="specParam(f,opt)">
-                            <a>{{opt.name}}</a>
+                    <ul class="type-list" >
+                        <li v-for="opt in f.options">
+                            <a @click="specSearch(f,opt)">{{opt.name}}</a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="fl ext"></div>
             </div>
-
             <div class="type-wrap logo"  v-else>
-                <div class="fl key brand">品牌</div>
+                <div class="fl key brand" >{{f.key}}</div>
                 <div class="value logos">
-                    <ul class="logo-list">
-                        <li v-for="opt in f.options" @click="specParam(f,opt)"><img :src="opt.image" v-show="opt.image!=''"/></li>
-                        <li v-for="opt in f.options" @click="specParam(f,opt)" style="text-align: center" v-show="opt.image ==''"><a style="line-height: 30px; font-size: 12px" href="#">{{opt.name}}</a></li>
+                    <ul class="logo-list" >
+                      <li v-for="opt in f.options"><img @click="specSearch(f,opt)" :src="opt.image"></li>
+                        <!--<li v-for="opt in f.options" style="text-align: center"><a style="line-height: 30px; font-size: 12px" @click="specSearch(f,opt)"></a></li>-->
                     </ul>
                 </div>
                 <div class="fl ext">
                     <a href="javascript:void(0);" class="sui-btn">多选</a>
                 </div>
             </div>
-
-
-
 
 
 
@@ -162,14 +159,14 @@
             <div class="sui-navbar">
                 <div class="navbar-inner filter">
                     <ul class="sui-nav">
-                        <li>
+                        <li class="active">
                             <a href="#">综合</a>
                         </li>
                         <li>
                             <a href="#">销量</a>
                         </li>
-                        <li @click="orderby('createTime')" :class="{active:search.sortBy==='createTime'}">
-                            <a >新品</a>
+                        <li @click="orderBy('createTime')" :class="{active: search.sortBy==='createTime'}">
+                            <a href="#">新品</a>
                         </li>
                         <li>
                             <a href="#">评价</a>
@@ -181,36 +178,35 @@
                     <div class="top-pagination">
                         <span>共 <i style="color: #222;">{{total}}</i> 商品</span>
                         <span><i style="color: red;">{{search.page}}</i>/{{totalPage}}</span>
-                        <a class="btn-arrow" href="#" style="display:inline-block" @click="prePage">&lt;</a>
-                        <a class="btn-arrow" href="#" style="display:inline-block" @click="nextPage">&gt;</a>
+                        <a class="btn-arrow" @click="prePage" style="display: inline-block">&lt;</a>
+                        <a class="btn-arrow" @click="nextPage" style="display: inline-block">&gt;</a>
                     </div>
                 </div>
             </div>
             <div class="goods-list">
                 <ul class="yui3-g">
-                    <li class="yui3-u-1-5" v-for="(item,index) in goodsList">
+                    <li class="yui3-u-1-5" v-for="goods in goodsList" :key="goods.id">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <a href="item.html" target="_blank"><img :src="item.selected.images" height="200"/></a>
+                                <a :href="'item/'+goods.id+'.html'" target="_blank"><img :src="goods.selected.images" height="200"/></a>
                                 <ul class="skus">
-                                    <li :class="{selected:item.selected.id==sku.id}" v-for="sku in item.skus">
-                                        <img :src="sku.images" @click="item.selected=sku">
-                                    </li>
-
+                                    <li :class="{selected:sku.id == goods.selected.id}" v-for="sku in goods.skus"
+                                   :key="sku.id" @mouseOver="goods.selected=sku" @click="goods.selected=sku">
+                                        <img :src="sku.images"></li>
                                 </ul>
                             </div>
                             <div class="clearfix"></div>
                             <div class="price">
                                 <strong>
                                     <em>¥</em>
-                                    <i>{{ly.formatPrice(item.selected.price)}}</i>
+                                    <i>{{ly.formatPrice(goods.selected.price)}}</i>
                                 </strong>
                             </div>
-                            <div class="attr" :title="item.selected.title">
-                                <em>{{item.selected.title.length>15?item.selected.title.substring(0,15):item.selected.title}}</em>
+                            <div class="attr" >
+                                <em>{{goods.selected.title.length>20 ? goods.selected.title.substring(0,20):goods.selected.title}}</em>
                             </div>
                             <div class="cu">
-                                <em><span>促</span>{{item.subTitle.length>15?item.subTitle.substring(0,15):item.subTitle}}</em>
+                                <em><span>促</span>{{goods.subTitle.length>15 ? goods.subTitle.substring(0,15):goods.subTitle}}</em>
                             </div>
                             <div class="commit">
                                 <i class="command">已有2000人评价</i>
@@ -222,26 +218,27 @@
                             </div>
                         </div>
                     </li>
+
                 </ul>
             </div>
             <div class="fr">
                 <div class="sui-pagination pagination-large">
                     <ul>
-                        <li class="prev" :class="{disabled:search.page == 1}">
-                            <a @click="prePage">«上一页</a>
+                        <li class="prev" :class="{disabled : search.page == 1}"> <!--判断是否上一页-->
+                            <a @click="prePage" >«上一页</a>
                         </li>
-                        <li :class="{active:index(i)==search.page}" v-for="i in Math.min(5,totalPage)" @click="search.page=index(i)">
+                        <li :class="{active:index(i) == search.page}" v-for="i in Math.min(5,totalPage)" @click="search.page=index(i)">
                             <a href="#">{{index(i)}}</a>
                         </li>
 
                         <li class="dotted"><span>...</span></li>
-                        <li class="next" :class="{disabled:search.page == totalPage}">
-                            <a @click="nextPage">下一页»</a>
+                        <li class="next" :class="{disabled : search.page == totalPage}" > <!--判断是否下一页-->
+                            <a @click="nextPage" >下一页»</a>
                         </li>
                     </ul>
-                    <div><span>共10页&nbsp;</span><span>
+                    <div><span>共{{totalPage}}页&nbsp;</span><span>
       到第
-      <input type="text" class="page-num" v-model="search.page">
+      <input type="text" class="page-num"  v-model="toPage">
       页 <button class="page-confirm" @click="gotoPage">确定</button></span></div>
                 </div>
             </div>
@@ -341,115 +338,117 @@
         data: {
             ly,
             search:{
-                page:1,
                 key:"",
+                page:1,
                 filter:{}
             },
             goodsList:[],
-            total:0,//总条数
-            totalPage:0,//总页数
-            filters:[],
-            show:false
+            total:0, //总条数
+            totalPage:0, //总页数,
+            toPage:1,  //要跳转得页数
+            filters:[] // 分类和品牌的集合
         },
         methods:{
-            specParam(f,opt){
-                //vue中不能动态的得到值，通过浅拷贝过度一下
+            specSearch(f,opt){
                 let searchTemp={};
-                Object.assign(searchTemp,this.search);//从一个对象copy到另一个对象
-
+                //浅拷贝  就是我们条件叠加时用到
+                Object.assign(searchTemp,this.search);
                 let value=0;
-                if(f.key=="分类" || f.key=="品牌"){
-                    value = opt.id;
+                if(f.key=="分类"){
+                    value=opt.id;
+                }else if(f.key=="品牌"){
+                    value=opt.id;
                 }else{
-                    value = opt.name;
+                    value=opt.name;  //这个就是我们的参数
                 }
 
-                searchTemp.filter[f.key] = value;
+                searchTemp.filter[f.key]=value;
+                this.search=searchTemp;  //将value值赋给search里面的filter
 
-                this.search = searchTemp;//装我们的请求参数
             },
-            orderby(c){
-                this.search.sortBy=c;
+            orderBy(v,s){
+                this.search.sortBy=v;
                 this.search.descending=!this.search.descending;
-                this.initData();
+                this.loaddata();
             },
             gotoPage(){
-                this.initData();
+                this.search.page=this.toPage;
+                this.loaddata();  //跳转页面
             },
-            prePage(){
-                if(this.search.page>1){
-                    this.search.page --;
-                }
+            prePage(){  //上一页
+              if(this.search.page > 1){
+                  this.search.page --;
+              }
             },
-            nextPage(){
-                if(this.search.page<this.totalPage){
-                    this.search.page ++;
-                }
+            nextPage(){  //下一页
+              if(this.search.page < this.totalPage){
+                  this.search.page ++;
+              }
             },
-            index(i){
-                if(this.search.page<=3||this.totalPage<=5){
-                    //如果当前页小于等于3或者总页数小于等于5
+            index(i){  //分页计算
+                if(this.search.page <= 3 || this.totalPage <= 5){
+                    // 如果当前页小于等于3或者总页数小于等于5
                     return i;
-                }else if(this.search.page>3&&this.search.page<=this.totalPage-3){
-                    //如果当前页大于3
-                    return this.search.page-3+i;
-                }else if(this.search.page>this.totalPage-3){
-                    return this.totalPage-5+i;
+                } else if(this.search.page > 3 && this.search.page <= this.totalPage-3) {
+                    // 如果当前页大于3
+                    return this.search.page - 3 + i;
+                } else if(this.search.page > this.totalPage-3) {
+                    return this.totalPage - 5 + i;
                 }
             },
-            initData(){
+            loaddata() {
                 ly.http.post("/search/search/page", this.search)
-                    .then(({data}) => {
-                        console.info(data)
-                        data.items.forEach(item=>{
-                            item.skus=JSON.parse(item.skus);
-                            item.selected=item.skus[0];
-                        });
+                    .then((res) => {
+                        console.info(res)
+                        //将当前得总条数数赋值给total
+                        this.total=res.data.total;
+                        //将当前得总页数赋值给totalPage
+                        this.totalPage=res.data.totalPage;
 
-                        this.goodsList=data.items;
-                        this.total=data.total;
-                        this.totalPage=data.totalPage;
+                        res.data.items.forEach(goods=>{
+                            goods.skus=JSON.parse(goods.skus);
+                            goods.selected =goods.skus[0];
+                        });
+                        this.goodsList=res.data.items;
+
+                        this.filters=[];
+                        //进行赋值
                         this.filters.push({
                             key:"分类",
-                            options:data.categoryList
-                        });
+                            options:res.data.categoryList
+                        })
                         this.filters.push({
                             key:"品牌",
-                            options:data.brandList
-                        });
-                        data.paramList.forEach(p=>{
+                            options:res.data.brandList
+                        })
+                        res.data.parmaList.forEach(p=>{
                             this.filters.push(p);
                         })
 
-                    })
-                    .catch(error => {
-                        alert("请求错误")
-                    })
+                    }).catch()
+            }
+        },
+        watch:{
+            search:{
+                deep:true,
+                handler(newVal,oldVal){
+                    if(!oldVal || !oldVal.key){
+                        // 如果旧的search值为空，或者search中的key为空，证明是第一次
+                        return;
+                    }
+                    // 把search对象变成请求参数，拼接在url路径
+                    window.location.href = location.href.substring(0,location.href.indexOf("?")+1) + ly.stringify(newVal);
+                }
             }
         },
         created(){
-            const search = ly.parse(location.search.substring(1));
-
-            search.page=search.page ? parseInt(search.page) : 1;
-            // if(location.search.substring(1).indexOf("page")==-1){
-            //     search.page=1;
-            // }
-            search.filter = search.filter || {};
-            this.search=search;
-            this.search.sortBy="createTime";
-            this.initData();
-        },
-        watch:{
-          search:{
-              deep:true,
-              handler(newVal,oldVal){
-                  if(!oldVal||!oldVal.key){
-                      return ;
-                  }else{
-                     location.href=location.href.substring(0,location.href.indexOf("?")+1)+ly.stringify(this.search);
-                  }
-              }
-          }
+            const s =ly.parse(location.search.substring(1));
+            console.info(s)
+            s.filter=s.filter || {};
+            s.page=s.page ? parseInt(s.page) : 1;
+            this.search=s;
+            this.search.sortBy="createTime"
+            this.loaddata();
         },
         components:{
             lyTop: () => import("./js/pages/top.js")
