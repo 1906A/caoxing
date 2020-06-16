@@ -1,9 +1,9 @@
 package com.leyou.search.controller;
 
 import com.leyou.common.PageResult;
-import com.leyou.pojo.Brand;
-import com.leyou.pojo.Category;
-import com.leyou.pojo.SpecParam;
+import com.leyou.Brand;
+import com.leyou.Category;
+import com.leyou.SpecParam;
 import com.leyou.search.client.BrandClient;
 import com.leyou.search.client.CategoryClient;
 import com.leyou.search.client.SpecClient;

@@ -23,6 +23,9 @@ zuul:
     search-service: /search/** # 将搜索微服务映射到/search/**
     msg-service: /msg/** # 将短信微服务映射到/msg/**
     user-service: /user/** # 将用户微服务映射到/user/**
+    auth-service: /auth/** # 将授权中心微服务映射到/auth/**
+  add-host-header: true
+  sensitive-headers:
 
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)

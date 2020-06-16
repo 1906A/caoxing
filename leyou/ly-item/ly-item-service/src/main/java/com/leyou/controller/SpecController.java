@@ -1,10 +1,9 @@
 package com.leyou.controller;
 
-import com.leyou.pojo.SpecGroup;
-import com.leyou.pojo.SpecParam;
+import com.leyou.SpecGroup;
+import com.leyou.SpecParam;
 import com.leyou.service.SpecGroupService;
 import com.leyou.service.SpecParamService;
-import jdk.nashorn.internal.ir.ReturnNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

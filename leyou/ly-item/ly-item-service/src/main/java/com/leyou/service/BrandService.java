@@ -4,8 +4,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.leyou.common.PageResult;
 import com.leyou.dao.BrandMapper;
-import com.leyou.pojo.Brand;
-import com.leyou.pojo.Category;
+import com.leyou.Brand;
+import com.leyou.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

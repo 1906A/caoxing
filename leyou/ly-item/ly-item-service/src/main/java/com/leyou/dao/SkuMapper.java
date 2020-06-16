@@ -1,6 +1,6 @@
 package com.leyou.dao;
 
-import com.leyou.pojo.Sku;
+import com.leyou.Sku;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.Mapper;

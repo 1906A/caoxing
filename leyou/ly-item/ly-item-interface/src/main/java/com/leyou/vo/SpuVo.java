@@ -1,8 +1,8 @@
 package com.leyou.vo;
 
-import com.leyou.pojo.Sku;
-import com.leyou.pojo.Spu;
-import com.leyou.pojo.SpuDetail;
+import com.leyou.Sku;
+import com.leyou.Spu;
+import com.leyou.SpuDetail;
 
 import java.util.List;
 

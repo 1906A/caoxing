@@ -1,6 +1,6 @@
 package com.leyou.dao;
 
-import com.leyou.pojo.SpecGroup;
+import com.leyou.SpecGroup;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.Mapper;
 

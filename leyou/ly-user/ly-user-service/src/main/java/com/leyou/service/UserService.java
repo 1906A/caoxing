@@ -67,4 +67,8 @@ public class UserService {
         User user1 = userMapper.selectOne(user);
         return user1;
     }
+
+    public User selectUser(User user) {
+        return userMapper.selectOne(user);
+    }
 }

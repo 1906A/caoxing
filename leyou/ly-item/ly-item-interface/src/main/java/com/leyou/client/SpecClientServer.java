@@ -1,7 +1,7 @@
 package com.leyou.client;
 
-import com.leyou.pojo.SpecGroup;
-import com.leyou.pojo.SpecParam;
+import com.leyou.SpecGroup;
+import com.leyou.SpecParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -1,6 +1,6 @@
 package com.leyou.dao;
 
-import com.leyou.pojo.Spu;
+import com.leyou.Spu;
 import com.leyou.vo.SpuVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;

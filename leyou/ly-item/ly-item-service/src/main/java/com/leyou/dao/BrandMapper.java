@@ -1,7 +1,7 @@
 package com.leyou.dao;
 
-import com.leyou.pojo.Brand;
-import com.leyou.pojo.Category;
+import com.leyou.Brand;
+import com.leyou.Category;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.Mapper;

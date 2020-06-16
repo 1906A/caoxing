@@ -2,8 +2,8 @@ package com.leyou.service;
 
 import com.leyou.dao.SkuMapper;
 import com.leyou.dao.StockMapper;
-import com.leyou.pojo.Sku;
-import com.leyou.pojo.Stock;
+import com.leyou.Sku;
+import com.leyou.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

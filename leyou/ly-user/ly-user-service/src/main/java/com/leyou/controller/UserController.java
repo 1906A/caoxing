@@ -79,25 +79,29 @@ public class UserController {
         User user = new User();
 
         System.out.println("查询用户："+username+"======"+password);
-        return user;
+        user.setUsername(username);
+        user.setPassword(password);
+
+        return userService.selectUser(user);
     }
 
     /*
     * 根据用户名和密码登录
-    * */
+
     @PostMapping("login")
-    public Boolean login(@RequestParam String username,@RequestParam String password){
+    public String login(@RequestParam String username,@RequestParam String password){
         System.out.println("查询用户："+username+"======"+password);
 
-        Boolean result = false;
+        String result = "1";
         User user = userService.findUser(username);
         if(user!=null){
             String newPassword= DigestUtils.md5Hex(password+user.getSalt());
             if(newPassword.equals(user.getPassword())){
-                result = true;
+                result = "0";
             }
         }
 
         return result;
     }
+    * */
 }

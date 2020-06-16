@@ -1,8 +1,8 @@
 package com.leyou.client;
 
 import com.leyou.common.PageResult;
-import com.leyou.pojo.Spu;
-import com.leyou.pojo.SpuDetail;
+import com.leyou.Spu;
+import com.leyou.SpuDetail;
 import com.leyou.vo.SpuVo;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

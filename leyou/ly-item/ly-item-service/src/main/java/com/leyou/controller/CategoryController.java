@@ -1,9 +1,7 @@
 package com.leyou.controller;
 
-import com.leyou.pojo.Category;
+import com.leyou.Category;
 import com.leyou.service.CategoryService;
-import org.hibernate.validator.constraints.URL;
-import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

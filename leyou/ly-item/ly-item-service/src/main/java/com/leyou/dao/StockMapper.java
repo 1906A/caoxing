@@ -1,6 +1,6 @@
 package com.leyou.dao;
 
-import com.leyou.pojo.Stock;
+import com.leyou.Stock;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.Mapper;
 @Component

@@ -2,9 +2,9 @@ package com.leyou.search.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.leyou.pojo.Sku;
-import com.leyou.pojo.SpecParam;
-import com.leyou.pojo.SpuDetail;
+import com.leyou.Sku;
+import com.leyou.SpecParam;
+import com.leyou.SpuDetail;
 import com.leyou.search.client.SkuClient;
 import com.leyou.search.client.SpecClient;
 import com.leyou.search.client.SpuClient;

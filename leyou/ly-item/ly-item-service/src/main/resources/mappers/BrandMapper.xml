@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.leyou.dao.BrandMapper">
-    <select id="findBrandByPage"  resultType="com.leyou.pojo.Brand">
+    <select id="findBrandByPage"  resultType="com.leyou.Brand">
         select * from tb_brand
             <where>
                 <if test="key != null and key != ''">
@@ -19,7 +19,7 @@
                 </if>
     </select>
 
-    <select id="findBrandByLimit"  resultType="com.leyou.pojo.Brand">
+    <select id="findBrandByLimit"  resultType="com.leyou.Brand">
         select * from tb_brand
             <where>
                 <if test="key != null and key != ''">
@@ -55,7 +55,7 @@
                         </if>
                 </if>
     </select>
-    <insert id="addBrand" parameterType="com.leyou.pojo.Brand" useGeneratedKeys="true" keyProperty="id">
+    <insert id="addBrand" parameterType="com.leyou.Brand" useGeneratedKeys="true" keyProperty="id">
         insert into tb_brand values(null,#{name},#{image},#{letter})
     </insert>
 </mapper>
