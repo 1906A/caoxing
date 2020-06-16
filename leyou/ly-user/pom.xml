@@ -15,5 +15,11 @@
         <module>ly-user-interface</module>
         <module>ly-user-service</module>
     </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.leyou.parent</groupId>
+            <artifactId>leyou-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
