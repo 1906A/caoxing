@@ -1,25 +1,12 @@
 package com.leyou.controller;
 
 
-import com.leyou.client.*;
-import com.leyou.pojo.*;
 import com.leyou.service.GoodsService;
-import jdk.nashorn.internal.ir.CatchNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 public class GoodsDetailController {

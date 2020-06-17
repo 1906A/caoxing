@@ -9,14 +9,11 @@ import com.leyou.utils.CookieUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.DigestUtils;
-import org.springframework.web.HttpRequestHandler;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@RestController
 public class AuthController {
 
     @Autowired
@@ -50,5 +47,31 @@ public class AuthController {
 
 
         return result;
+    }
+
+    /**
+     * 当cookie失效之后重新设置cookie
+     */
+    @GetMapping("verify")
+    public Object verify(@CookieValue(value = "token",required = false) String token, HttpServletRequest request, HttpServletResponse response){
+
+        System.out.println("verify====="+token);
+        UserInfo userInfo =new UserInfo();
+        try {
+            //从token信息中解析获取用户信息
+            userInfo = JwtUtils.getInfoFromToken(token, jwtProperties.getPublicKey());
+
+            //防止过期，重新设置token
+            token = JwtUtils.generateToken(new UserInfo(userInfo.getId(), userInfo.getUsername()),
+                    jwtProperties.getPrivateKey(), jwtProperties.getExpire());
+
+            //返回token
+            CookieUtils.setCookie(request,response,jwtProperties.getCookieName(),token,jwtProperties.getExpire()*60);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return userInfo;
     }
 }

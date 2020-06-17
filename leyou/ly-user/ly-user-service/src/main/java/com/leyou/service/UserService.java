@@ -68,7 +68,11 @@ public class UserService {
         return user1;
     }
 
-    public User selectUser(User user) {
-        return userMapper.selectOne(user);
+    public User selectUser(String username, String password) {
+
+        User user =new User();
+        user.setUsername(username);
+        User user1 = userMapper.selectOne(user);
+        return user1;
     }
 }

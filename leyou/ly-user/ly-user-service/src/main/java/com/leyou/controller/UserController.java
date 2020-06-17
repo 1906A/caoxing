@@ -75,14 +75,21 @@ public class UserController {
     * 根据用户名和密码查询用户
     * */
     @GetMapping("/query")
-    public User query(@RequestParam String username,@RequestParam String password){
-        User user = new User();
-
+    public User query(@RequestParam("username") String username,@RequestParam("password") String password){
         System.out.println("查询用户："+username+"======"+password);
-        user.setUsername(username);
-        user.setPassword(password);
 
-        return userService.selectUser(user);
+        //1：根据用户名查询用户信息
+        User user  = userService.findUser(username);
+        if(user!=null){
+            //2：比对密码
+            String newPassword = DigestUtils.md5Hex(password + user.getSalt());
+            System.out.println("newPassword:"+newPassword);
+            System.out.println("password:"+user.getPassword());
+            if(user.getPassword().equals(newPassword)){
+                return user;
+            }
+        }
+        return null;
     }
 
     /*
