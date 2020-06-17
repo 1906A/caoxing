@@ -111,7 +111,7 @@
             login(){
                 leyou.http.post("/auth/login",leyou.stringify(this.form))
                     .then(resp => {
-                        if(resp.data == 0){
+                        if(resp.data == "0"){
                             const url = leyou.getUrlParam("returnUrl");
                             window.location = url || 'http://www.leyou.com';
                         }else{
