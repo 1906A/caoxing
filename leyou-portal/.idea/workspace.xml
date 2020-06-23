@@ -4,7 +4,12 @@
     <list default="true" id="b72a6b92-8585-42c6-a58e-abeb7fba0503" name="Default Changelist" comment="乐优前台登录请求授权中心">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getOrderInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/getOrderInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/success-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/success-cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leyou/leyou-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leyou/leyou-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leyou/ly-api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../leyou/ly-api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leyou/ly-cart/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leyou/ly-cart/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leyou/ly-cart/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../leyou/ly-cart/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leyou/ly-goods-web/src/main/resources/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/../leyou/ly-goods-web/src/main/resources/templates/item.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leyou/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leyou/pom.xml" afterDir="false" />
     </list>
@@ -45,36 +50,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="121" column="13" lean-forward="true" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/success-cart.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="617" lean-forward="true" selection-start-line="617" selection-end-line="617" />
-              <folding>
-                <element signature="n#div#1;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="1815">
+              <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cart.html">
+        <entry file="file://$PROJECT_DIR$/getOrderInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="321" column="61" lean-forward="true" selection-start-line="321" selection-start-column="61" selection-end-line="321" selection-end-column="61" />
+            <state relative-caret-position="145">
+              <caret line="183" column="50" lean-forward="true" selection-start-line="183" selection-start-column="50" selection-end-line="183" selection-end-column="50" />
               <folding>
-                <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -94,6 +82,7 @@
         <option value="$PROJECT_DIR$/search.html" />
         <option value="$PROJECT_DIR$/success-cart.html" />
         <option value="$PROJECT_DIR$/cart.html" />
+        <option value="$PROJECT_DIR$/getOrderInfo.html" />
       </list>
     </option>
   </component>
@@ -106,8 +95,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="335" />
-    <option name="y" value="66" />
+    <option name="x" value="217" />
+    <option name="y" value="130" />
     <option name="width" value="862" />
     <option name="height" value="567" />
   </component>
@@ -186,7 +175,9 @@
       <workItem from="1592181319260" duration="1829000" />
       <workItem from="1592267654010" duration="4975000" />
       <workItem from="1592354357281" duration="3085000" />
-      <workItem from="1592470725268" duration="8222000" />
+      <workItem from="1592470725268" duration="8887000" />
+      <workItem from="1592525571686" duration="602000" />
+      <workItem from="1592783451572" duration="8352000" />
     </task>
     <task id="LOCAL-00001" summary="乐优前台">
       <created>1591009333669</created>
@@ -237,23 +228,31 @@
       <option name="project" value="LOCAL" />
       <updated>1592403742315</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="乐优前台未登录查看购物车">
+      <created>1592483305309</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592483305309</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58783000" />
+    <option name="totallyTimeSpent" value="68402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23903178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -264,7 +263,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.23442623" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.23442623" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -336,15 +335,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="121" column="13" lean-forward="true" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+        <state relative-caret-position="1815">
+          <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/success-cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="617" lean-forward="true" selection-start-line="617" selection-end-line="617" />
+        <state relative-caret-position="324">
+          <caret line="634" lean-forward="true" selection-start-line="634" selection-end-line="634" />
           <folding>
             <element signature="n#div#1;n#html#0;n#!!top" />
             <element signature="n#div#2;n#html#0;n#!!top" />
@@ -355,13 +354,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="321" column="61" lean-forward="true" selection-start-line="321" selection-start-column="61" selection-end-line="321" selection-end-column="61" />
+        <state relative-caret-position="1746">
+          <caret line="301" column="70" lean-forward="true" selection-start-line="301" selection-start-column="70" selection-end-line="301" selection-end-column="70" />
           <folding>
             <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#0;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getOrderInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="183" column="50" lean-forward="true" selection-start-line="183" selection-start-column="50" selection-end-line="183" selection-end-column="50" />
+          <folding>
+            <element signature="n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

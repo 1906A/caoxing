@@ -44,7 +44,7 @@ $(function(){
             <h3><i class="sui-icon icon-pc-right"></i>商品已成功加入购物车！</h3>
             <div class="goods">
                 <div class="left-good">
-                    <div class="left-pic"><img :src="selectedsku.image"></div>
+                    <div class="left-pic"><img :src="selectedsku.images"></div>
                     <div class="right-info">
                         <p class="title">{{selectedsku.title}}</p>
                         <p class="attr">颜色：{{ownSpec}} 数量：{{selectedsku.num}}</p>
@@ -618,9 +618,23 @@ $(function(){
 
         },
         created(){
-            //获取selectedsku
-            this.selectedsku = ly.store.get("selectedsku");
-            this.ownSpec = Object.values(JSON.parse(this.selectedsku.ownSpec)).join("/");
+            this.ly.http("/auth/verify")
+                .then(res=>{
+                    this.user=res.data;
+                    if(this.user.id==null){
+                        // 未登录保存在浏览器本地的localStorage中
+                        //获取selectedsku
+                        this.selectedsku = ly.store.get("selectedsku");
+                        this.ownSpec = Object.values(JSON.parse(this.selectedsku.ownSpec)).join("/");
+                    }else{
+                        this.ly.http.post("/cart/selectedSku").then(res=>{
+                            console.info(res.data)
+                            this.selectedsku = res.data;
+                            this.ownSpec = Object.values(JSON.parse(this.selectedsku.ownSpec)).join("/");
+                        })
+
+                    }
+                })
         }
     });
 </script>
