@@ -668,7 +668,7 @@
 										skuId: this.sku.id,
 										title: this.sku.title,
 										price: this.sku.price,
-										image: this.sku.images,
+										images: this.sku.images,
 										num: this.num,
 										ownSpec: this.sku.ownSpec
 									}
@@ -682,6 +682,14 @@
 								//window.location.href = "http://www.leyou.com/cart.html";
 							}else{
 								alert("已登录");
+								this.sku.num = this.num;
+								let skuVo = this.sku;
+								console.info(skuVo);
+
+								this.ly.http.post("/cart/add",skuVo).then(resp=>{
+									alert("添加购物车成功")
+								})
+
 							}
 						})
 
